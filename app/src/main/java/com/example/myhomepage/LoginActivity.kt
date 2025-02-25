@@ -25,12 +25,13 @@ class LoginActivity : AppCompatActivity() {
             val username = editTextUsername.text.toString()
             val password = editTextPassword.text.toString()
 
-            if (username == "admin" && password == "1234") {
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
+            } else {
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("username", username)
                 startActivity(intent)
                 finish()
-            } else {
-                Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
             }
         }
     }

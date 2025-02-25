@@ -1,6 +1,7 @@
 package com.example.myhomepage
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val username = intent.getStringExtra("username")
         val textViewWelcome = findViewById<TextView>(R.id.textViewWelcome)
-        textViewWelcome.text = "Selamat Datang di Aplikasi!"
+        textViewWelcome.text = "Selamat Datang, $username!"
+
+        Log.d("MainActivity", "username: $username")
     }
 }
